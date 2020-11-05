@@ -1,0 +1,50 @@
+Bot needs to save options for posts into a table referenced by a keyword, or alias in  a database
+
+
+sections: {
+
+	evolution: {
+		options: {
+			"A": {
+				desc: "sample text A",
+				weight: 1 // default to 1 unless otherwise specified
+			},
+			"B": {
+				desc: "sample text B",
+				weight: 2 // default to 1 unless otherwise specified
+				// weight stands for how many votes an option consumes
+			},
+			...
+		},
+		quantity: 1, // how many a user can select
+		...
+	},
+	action: {
+		options: {
+			"A": "sample text A",
+			"B": "sample text B"
+		},
+		...
+	},
+	...
+}
+
+different commands will be able to update sections with query params as additional specifications
+ie
+// for !cat! <method> <table>, <flag?> defaults to -options?
+!cat! {get, update {post, put, delete}}
+!cat! { update | u } <table> <flag?> add "<key>" "<desc>"
+!cat! update <table> <flag?> edit "<key>" "<descEdit>"
+!cat! get <table> <flag?> -all
+!cat! get <table> <flag?> "<key>"
+
+idea: mirroring
+!cat! update <table> <flag?> mirror
+"<key1>" "<desc1>"
+"<key2>" "<desc2>"
+"<key3>" "<desc3>"
+...
+
+
+
+

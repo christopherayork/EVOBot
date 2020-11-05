@@ -40,7 +40,7 @@ client.on(MESSAGE, msg => {
     let action = getCMD(msg.content);
     if(action) {
         let response = action(msg);
-        msg.reply(response);
+        msg.channel.send(response);
     }
 });
 
