@@ -1,0 +1,3 @@
+function Bot() {
+    return "Test";
+}
