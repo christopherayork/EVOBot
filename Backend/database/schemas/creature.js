@@ -1,3 +1,9 @@
+/*
+    Notes
+        * Core stats are universal across the board
+        * Include a map of additional fields that can be added/edited/deleted by the user
+ */
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
