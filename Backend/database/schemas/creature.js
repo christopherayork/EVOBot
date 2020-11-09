@@ -35,7 +35,9 @@ const creatureSchema = new Schema({
     land: defaultMovement,
     flying: defaultMovement,
     attack: { ...defaultStatField, required: true },
-    defense: { ...defaultStatField, required: true }
+    defense: { ...defaultStatField, required: true },
+    // we will assume all custom stats follow the same rules as a default stat
+    custom: { type: Map, of: defaultStatField, default: {} }
 });
 
 module.exports = mongoose.model("Creature", creatureSchema);
