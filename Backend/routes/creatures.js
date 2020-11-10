@@ -27,4 +27,6 @@ Router.route("/:id")
         // auth required
         if(!req.params.id) return res.status(400).json({ error: "id param required" });
         else return Creature.delete(req, res);
-    }));s
+    }));
+
+module.exports = Router;

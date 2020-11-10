@@ -40,4 +40,7 @@ const creatureSchema = new Schema({
     custom: { type: Map, of: defaultStatField, default: {} }
 });
 
-module.exports = mongoose.model("Creature", creatureSchema);
+module.exports = {
+    "Creature": mongoose.model("Creature", creatureSchema),
+    "Stat": mongoose.model("Stat", statSchema)
+}
