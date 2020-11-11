@@ -51,44 +51,28 @@ exports.readAll = function(req, res) {
 }
 
 
-// find out why we can't save custom stats into the map with new stat objects
+// in mongoose, maps must be manipulated through get/set only
 exports.update = function(req, res) {
     let id = req.params.id;
     let changes = req.body;
-    //console.log(changes);
     try {
         Creature.findById(id).exec(function(err, results) {
-            console.log(err);
             if(err) res.status(404).json({ error: "Could not update creature" });
             else {
                 let creature = results["_doc"];
-                console.log('before\n----------')
-                console.log(creature);
                 for(let key in changes) {
-                    console.log(`${key}: `);
-                    console.log(changes[key]);
-                    //console.log(Object.keys(creature));
-                    if(!creature.hasOwnProperty(key)) {
-                        console.log("results didn't have the property");
-                        continue;
-                    }
+                    if(!creature.hasOwnProperty(key)) continue;
                     let subProp = changes[key];
                     for(let innerKey in subProp) {
                         if(key === "custom") {
                             let newStat = new Stat(subProp[innerKey]);
-                            //newStat.save();
-                            console.log(newStat);
-                            creature[key][innerKey] = newStat;
+                            let customMap = creature[key];
+                            customMap.set(innerKey, newStat);
                         }
                         else creature[key][innerKey] = subProp[innerKey];
                     }
                 }
-                console.log("after\n---------");
-                console.log(creature);
-                //console.log(results);
-                results.save({}, function(err, updated) {
-                    //console.log(updated);
-                });
+                results.save({});
                 res.status(200).json(results);
             }
         });
