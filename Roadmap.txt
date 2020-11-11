@@ -1,0 +1,43 @@
+v0.1
+----
+Database for Creature
+- basic stat fields
+- map for custom stats
+API
+- full CRUD
+Frontend
+- Full CRUD forms for Creature
+
+v0.2
+----
+Backend
+- Implement Campaign schema which holds all the data relevant to an individual game, including some stats and the DM
+Bot
+- Implement command for certain roles to be able to create a Campaign
+
+v0.3
+----
+Frontend
+- Implement UI for Discord OAUTH2
+Backend
+- Validate OAUTH2 Token and compare it to saved DM for auth
+
+v0.4
+----
+* Ecosystem
+
+v0.5
+----
+* Flora
+
+v0.6
+----
+* Update data/forms
+
+v0.7
+----
+* Bot commands to execute update
+
+v0.8
+----
+* Different stages?

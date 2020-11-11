@@ -1,0 +1,63 @@
+Home: show feed of most recent updates after oauth2
+Ecosystem: Show stats of ecosystem, list out Zones, Creatures, Flora, and Updates. Each of these categories route to their own panel with CRUD ops for DM'ing the campaign
+
+
+Zone
+----
+Name, coords, creatures (array of ids), flora (array of ids)
+description
+
+Creature
+----
+<All fields listed in database>
+
+
+Flora
+----
+<Likely piggyback off Creature?>
+
+Update
+----
+-- Category
+--- Option {
+	text,
+	subCategory
+    }
+
+Example for Update
+----
+Evolution
+- Brain
+-- Sight
+-- Touch
+-- Smell
+-- Hearing
+- Bones
+-- Density
+-- Shape
+--- Longer
+--- Shorter
+--- Thicker
+--- Thinner
+- Muscles
+-- Strength
+-- Flexibility
+- Dental
+-- More
+-- Durability
+
+Action
+- Prey
+-- Fish
+-- Bird
+-- Plant
+- Reproduce
+-- More
+-- Less
+- Innovate
+-- Stick
+--- Eat
+--- Collect
+-- Rock
+--- Collect
+--- Throw
